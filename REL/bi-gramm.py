@@ -66,11 +66,11 @@ print('type',type(x_train[0]))
 # Set parameters:
 # ngram_range = 2 will add bi-grams features
 ngram_range = 2
-max_features = 27000
+max_features = 20000
 maxlen = 600
 batch_size = 64
 embedding_dims = 50
-epochs = 50
+epochs = 30
 
 print(len(x_train), 'train sequences')
 print(len(x_test), 'test sequences')
@@ -125,7 +125,7 @@ model.add(Embedding(max_features,
                     embedding_dims,
                     input_length=maxlen,
                     trainable=True))
-model.add(Dropout(0.1))
+model.add(Dropout(0.15))
 model.add(GlobalAveragePooling1D())
 model.add(Dense(256))
 model.add(Activation('relu'))
